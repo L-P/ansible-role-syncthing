@@ -4,7 +4,9 @@ Install [Syncthing](https://syncthing.net/).
 
 Requirements
 ------------
-A Debian-based distribution.
+A Debian-based distribution.  
+Look at the [Syncthing documentation](https://docs.syncthing.net/users/firewall.html)
+to see what ports to open. The firewall configuration is not handled in this role.
 
 Role Variables
 --------------
