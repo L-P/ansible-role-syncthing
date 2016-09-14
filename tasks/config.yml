@@ -1,0 +1,20 @@
+---
+- name: Set Syncthing config
+  tags: debug
+  no_log: true
+  copy:
+    dest="{{syncthing_user_home}}/.config/syncthing/{{item.name}}"
+    content="{{item.content}}"
+    owner="syncthing"
+    group="syncthing"
+    mode="{{item.mode|default('0600')}}"
+  with_items:
+    - {name: "cert.pem", content: "{{syncthing_config_cert}}", mode: "0640"}
+    - {name: "key.pem", content: "{{syncthing_config_key}}"}
+    - {name: "https-cert.pem", content: "{{syncthing_config_https_cert}}", mode: "0640"}
+    - {name: "https-key.pem", content: "{{syncthing_config_https_key}}"}
+    - {name: "config.xml", content: "{{syncthing_config_config}}"}
+  when:
+    "item.content"
+  notify:
+    "restart syncthing"

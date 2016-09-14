@@ -9,3 +9,9 @@ syncthing_manage_user: true
 
 syncthing_fetch_config: false
 syncthing_fetch_dir: "./files"
+
+syncthing_config_cert:
+syncthing_config_key:
+syncthing_config_https_cert:
+syncthing_config_https_key:
+syncthing_config_config:
