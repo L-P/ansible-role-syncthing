@@ -1,6 +1,5 @@
 ---
 - name: Set Syncthing config
-  tags: debug
   no_log: true
   copy:
     dest="{{syncthing_user_home}}/.config/syncthing/{{item.name}}"
