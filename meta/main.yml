@@ -1,0 +1,13 @@
+---
+dependencies: []
+galaxy_info:
+  author: "Léo Peltier"
+  description: "Install Syncthing on Ubuntu 16.04"
+  license: "MIT"
+  galaxy_tags: ["syncthing", "cloud"]
+
+  min_ansible_version: 2.1
+  platforms:
+    - name: "Ubuntu"
+      versions:
+        - "xenial"

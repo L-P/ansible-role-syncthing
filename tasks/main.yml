@@ -1,0 +1,5 @@
+---
+- include: setup.yml
+  when: "not syncthing_fetch_config"
+- include: fetch.yml
+  when: "syncthing_fetch_config"

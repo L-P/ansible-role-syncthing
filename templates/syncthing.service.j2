@@ -1,0 +1,10 @@
+[Unit]
+Description=Syncthing
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/syncthing -no-browser
+User={{syncthing_user}}
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,46 @@
+---
+- name: Add syncthing user
+  user:
+    name="{{syncthing_user}}"
+    shell="/usr/sbin/nologin"
+    password="!"
+    system=yes
+    createhome=yes
+    home="{{syncthing_user_home}}"
+  when:
+    "syncthing_manage_user"
+
+- name: Add syncthing repository key
+  apt_key:
+    id="{{syncthing_apt_key_id}}"
+    url="{{syncthing_apt_key_url}}"
+    keyring="/etc/apt/trusted.gpg.d/syncthing.gpg"
+
+- name: Add syncthing repository
+  apt_repository:
+    repo="{{syncthing_apt_repository}}"
+
+- name: Install syncthing package
+  apt:
+    name="syncthing"
+
+- name: Copy syncthing systemd service
+  template:
+    src="syncthing.service.j2"
+    dest="/etc/systemd/system/syncthing.service"
+    owner="root"
+    group="root"
+    mode="0644"
+  register: result
+  notify: "restart syncthing"
+
+# TODO: remove all of this when Ansible 2.2 is released
+- name: Reload systemctl
+  command: systemctl daemon-reload
+  when: "result.changed"
+
+- name: Start syncthing
+  service:
+    name="syncthing"
+    state="started"
+    enabled=yes
