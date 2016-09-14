@@ -12,7 +12,7 @@ Role Variables
 --------------
 All variables are optional.  
 The only way to set Syncthing options is to edit its `config.xml` file, see the
-_Example Playbook_ section for details.
+[Example Playbook](#example-playbook) section for details.
 
 ```yaml
 # If the repository/key changes or you want to host your own, change these:
@@ -30,7 +30,7 @@ syncthing_user_home:
 syncthing_manage_user:
 
 # Set this to true to get the Syncthing configuration from the remote host,
-# see the _Example Playbook_ section.
+# see the Example Playbook section.
 syncthing_fetch_config:
 
 # Where the fetched files will be written.
