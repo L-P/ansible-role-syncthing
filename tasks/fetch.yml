@@ -1,0 +1,12 @@
+---
+- name: Fetch Syncthing configuration
+  fetch:
+    src="{{syncthing_user_home}}/{{item}}"
+    dest="{{syncthing_fetch_dir}}"
+    fail_on_missing=yes
+  with_items:
+    - ".config/syncthing/cert.pem"
+    - ".config/syncthing/key.pem"
+    - ".config/syncthing/config.xml"
+    - ".config/syncthing/https-cert.pem"
+    - ".config/syncthing/https-key.pem"

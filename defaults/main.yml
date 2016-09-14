@@ -8,3 +8,4 @@ syncthing_user_home: "/home/syncthing"
 syncthing_manage_user: true
 
 syncthing_fetch_config: false
+syncthing_fetch_dir: "./files"
