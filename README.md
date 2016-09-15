@@ -68,9 +68,6 @@ all new devices/folders/configuration will be erased from the remote host.**
 If you don't set the `syncthing_config_*` variables nothing will be overwritten
 but you will lose your configuration if your server sets itself on fire.
 
-An [enhancement suggestion](https://github.com/syncthing/syncthing/issues/3598)
-has been issued to mitigate the issue.
-
 ```yaml
 # Get the generated configuration
 - hosts: servers
