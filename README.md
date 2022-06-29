@@ -4,7 +4,7 @@ Install [Syncthing](https://syncthing.net/).
 
 Requirements
 ------------
-A Debian-based distribution.  
+A Debian-based distribution, root or _become_ on the remote host.
 Look at the [Syncthing documentation](https://docs.syncthing.net/users/firewall.html)
 to see what ports to open. The firewall configuration is not handled in this role.
 
@@ -54,7 +54,7 @@ Example Playbook
 # Install Syncthing
 - hosts: servers
   roles:
-    - { role: L-P.syncthing, become: true }
+    - { role: L-P.syncthing }
 ```
 
 The Syncthing configuration is dynamic and edited at runtime using the GUI.  
@@ -72,7 +72,7 @@ but you will lose your configuration if your server sets itself on fire.
 # Get the generated configuration
 - hosts: servers
   roles:
-    - { role: L-P.syncthing, become: true, syncthing_fetch_config: true }
+    - { role: L-P.syncthing, syncthing_fetch_config: true }
 ```
 
 You can use `lookup` to read the files and set the variables:

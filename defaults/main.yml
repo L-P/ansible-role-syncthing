@@ -1,7 +1,8 @@
 ---
-syncthing_apt_key_id: "D26E6ED000654A3E"
-syncthing_apt_key_url: "https://syncthing.net/release-key.txt"
-syncthing_apt_repository: "deb http://apt.syncthing.net/ syncthing release"
+syncthing_apt_key_id: "37C84554E7E0A261E4F76E1ED26E6ED000654A3E"
+syncthing_apt_key_url: "https://syncthing.net/release-key.gpg"
+syncthing_apt_key_path: "/usr/share/keyrings/syncthing-archive-keyring.gpg"
+syncthing_apt_repository: "deb [signed-by={{syncthing_apt_key_path}}] https://apt.syncthing.net/ syncthing stable"
 
 syncthing_user: "syncthing"
 syncthing_user_home: "/home/syncthing"
