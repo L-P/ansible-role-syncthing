@@ -54,7 +54,7 @@ Example Playbook
 # Install Syncthing
 - hosts: servers
   roles:
-    - { role: L-P.syncthing }
+    - { role: l-p.syncthing }
 ```
 
 The Syncthing configuration is dynamic and edited at runtime using the GUI.  
@@ -72,17 +72,17 @@ but you will lose your configuration if your server sets itself on fire.
 # Get the generated configuration
 - hosts: servers
   roles:
-    - { role: L-P.syncthing, syncthing_fetch_config: true }
+    - { role: l-p.syncthing, syncthing_fetch_config: true }
 ```
 
 You can use `lookup` to read the files and set the variables:
 
 ```yaml
-syncthing_config_cert: "{{lookup('file', 'files/hostname/home/syncthing/.config/syncthing/cert.pem')}}"
-syncthing_config_key: "{{lookup('file', 'files/hostname/home/syncthing/.config/syncthing/key.pem')}}"
-syncthing_config_https_cert: "{{lookup('file', 'files/hostname/home/syncthing/.config/syncthing/https-cert.pem')}}"
-syncthing_config_https_key: "{{lookup('file', 'files/hostname/home/syncthing/.config/syncthing/https-key.pem')}}"
-syncthing_config_config: "{{lookup('file', 'files/hostname/home/syncthing/.config/syncthing/config.xml')}}"
+syncthing_config_cert: "{{lookup('file', 'files/{{ inventory_hostname }}/home/syncthing/.config/syncthing/cert.pem')}}"
+syncthing_config_key: "{{lookup('file', 'files/{{ inventory_hostname }}/home/syncthing/.config/syncthing/key.pem')}}"
+syncthing_config_https_cert: "{{lookup('file', 'files/{{ inventory_hostname }}/home/syncthing/.config/syncthing/https-cert.pem')}}"
+syncthing_config_https_key: "{{lookup('file', 'files/{{ inventory_hostname }}/home/syncthing/.config/syncthing/https-key.pem')}}"
+syncthing_config_config: "{{lookup('file', 'files/{{ inventory_hostname }}/home/syncthing/.config/syncthing/config.xml')}}"
 ```
 
 I advise to use `ansible-vault` to encrypt the keys, `lookup` will decrypt them
