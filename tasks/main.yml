@@ -1,9 +1,9 @@
 ---
-- include: setup.yml
+- import_tasks: setup.yml
   when: "not syncthing_fetch_config"
 
-- include: config.yml
+- import_tasks: config.yml
   when: "not syncthing_fetch_config"
 
-- include: fetch.yml
+- import_tasks: fetch.yml
   when: "syncthing_fetch_config"
